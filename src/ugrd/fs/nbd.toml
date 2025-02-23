@@ -1,0 +1,11 @@
+binaries = ["nbd-client", "swapon"]
+kmod_init = ["nbd"]
+
+[imports.init_main]
+"ugrd.fs.nbd" = ["nbd_import"]
+
+[import_order.before]
+nbd_import = ["mount_fstab"]
+
+[custom_parameters]
+nbd ="dict"
